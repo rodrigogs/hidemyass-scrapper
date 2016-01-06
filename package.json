@@ -1,0 +1,32 @@
+{
+  "name": "hidemyass-scrapper",
+  "version": "0.0.0",
+  "description": "Page scrapper that retrieves proxy server information from HideMyAss website",
+  "license": "BSD-2-Clause",
+  "repository": "hidemyass-scrapper",
+  "author": {
+    "name": "Rodrigo Gomes da Silva",
+    "email": "rodrigo.smscom@gmail.com",
+    "web": "https://github.com/rodrigogs/hidemyass-scrapper"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "ava tests.js --serial"
+  },
+  "keywords": [
+    "crawler",
+    "proxy",
+    "web",
+    "cheat",
+    "spider",
+    "scrapper",
+    "hidemyass"
+  ],
+  "devDependencies": {
+    "ava": "^0.9.1"
+  },
+  "dependencies": {
+    "phantom": "^0.8.4",
+    "phantomjs": "^1.9.19"
+  }
+}
