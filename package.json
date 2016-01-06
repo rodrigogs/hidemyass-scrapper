@@ -11,7 +11,6 @@
   },
   "main": "index.js",
   "scripts": {
-    "preinstall": "npm install -g phantomjs",
     "test": "ava tests.js --serial"
   },
   "keywords": [
