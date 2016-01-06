@@ -4,6 +4,8 @@
 
 Page scrapper that retrieves proxy server information from HideMyAss website.
 
+Make sure phantomjs is installed!
+
 > npm install hidemyass-scrapper
 
 ```javascript
