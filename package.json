@@ -11,6 +11,7 @@
   },
   "main": "index.js",
   "scripts": {
+    "preinstall": "npm install -g phantomjs",
     "test": "ava tests.js --serial"
   },
   "keywords": [
@@ -26,7 +27,6 @@
     "ava": "^0.9.1"
   },
   "dependencies": {
-    "phantom": "^0.8.4",
-    "phantomjs": "^1.9.19"
+    "phantom": "^0.8.4"
   }
 }
