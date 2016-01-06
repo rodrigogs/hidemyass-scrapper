@@ -5,12 +5,14 @@ Page scrapper that retrieves proxy server information from HideMyAss website.
 > npm install hidemyass-scrapper
 
 ```javascript
-var hidemyass = require('hidemyass-scrapper');
+var HideMyAss = require('hidemyass-scrapper');
 
-hidemyass.crawl(function (proxylist) {
-    for (proxy in proxylist) {
-        // You have a proxy here
-    }
+HideMyAss.getPages(function (pages) {
+    HideMyAss.crawl(pages, function (proxylist) {
+        for (proxy in proxylist) {
+            // You have a proxy here
+        }
+    });
 });
 ```
 
