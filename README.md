@@ -1,5 +1,7 @@
 # HideMyAss Scrapper
 
+[![Build Status](https://travis-ci.org/rodrigogs/hidemyass-scrapper.svg?branch=master)](https://travis-ci.org/rodrigogs/hidemyass-scrapper)
+
 Page scrapper that retrieves proxy server information from HideMyAss website.
 
 > npm install hidemyass-scrapper
