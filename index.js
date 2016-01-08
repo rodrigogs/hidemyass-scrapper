@@ -104,50 +104,44 @@ module.exports = {
                     /* It runs on the virtual browser, so we cant use ES6 */
                     function () {
                         var gtws = [];
-                        var table = $('table.DataGrid tbody');
+                        var table = $('table#listable tbody');
                         if (table) {
-    
-                            var rows = table.find('tr.Odd, tr.Even');
+
+                            var rows = table.find('tr');
                             rows.each(function (index, tr) {
-    
+
                                 var gateway = {};
                                 var cols = $(tr).find('td');
                                 cols.each(function (index, col) {
-    
+
                                     col = $(col);
                                     switch (col.index()) {
                                         case 0:
-                                            gateway.hostname = col[0].innerText.trim();
+                                            gateway.lastUpdate = col[0].innerText.trim();
                                             break;
                                         case 1:
-                                            gateway.port = col[0].innerText.trim();
+                                            gateway.hostname = col[0].innerText.trim();
                                             break;
                                         case 2:
-                                            gateway.protocol = col[0].innerText.trim().toLowerCase();
+                                            gateway.port = col[0].innerText.trim();
                                             break;
                                         case 3:
-                                            gateway.anonymity = col[0].innerText.trim();
-                                            break;
-                                        case 4:
                                             gateway.country = col[0].innerText.trim();
                                             break;
-                                        case 5:
-                                            gateway.region = col[0].innerText.trim();
-                                            break;
                                         case 6:
-                                            gateway.city = col[0].innerText.trim();
+                                            gateway.protocol = col[0].innerText.trim().toLowerCase();
                                             break;
                                         case 7:
-                                            gateway.uptime = col[0].innerText.trim();
+                                            gateway.anonymity = col[0].innerText.trim();
                                             break;
                                     }
-    
-                                    gateway.provider = 'FreeProxyLists';
-                                    gtws.push(gateway);
                                 });
+
+                                gateway.provider = 'HideMyAss';
+                                gtws.push(gateway);
                             });
                         }
-    
+
                         return gtws;
                     }
                     /* XXX */

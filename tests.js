@@ -11,10 +11,11 @@ test.cb('get pagination number', t => {
 });
 
 test.cb('crawl the proxy list from FreeProxyLists', t => {
-    t.plan(2);
+    t.plan(3);
     HideMyAss.crawl((err, gateways) => {
         t.ifError(err, 'Unexpected error crawling page');
         t.true((gateways instanceof Array), 'Return should be an array');
+        t.true((gateways.length > 0), 'Return should have values');
         t.end();
     });
 });
