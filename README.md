@@ -13,8 +13,14 @@ Make sure phantomjs is installed!
 ```javascript
 var HideMyAss = require('hidemyass-scrapper');
 
-HideMyAss.getPages(function (pages) {
-    HideMyAss.crawl(pages, function (proxylist) {
+HideMyAss.getPages(function (err, pages) {
+    if (err) {
+        return console.log('Dammit!');
+    }
+    HideMyAss.crawl(pages, function (err, proxylist) {
+        if (err) {
+            return console.log('Dammit!');
+        }
         for (proxy in proxylist) {
             // You have a proxy here
         }
