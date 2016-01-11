@@ -3,7 +3,7 @@
 const phantom = require('phantom');
 const async = require('async');
 
-const URL = 'http://proxylist.hidemyass.com/search-1292985#listable';
+const URL = 'http://proxylist.hidemyass.com/search-1302871#listable';
 
 /**
  * @module HideMyAssProvider
@@ -13,10 +13,13 @@ module.exports = {
     /**
      * Retrieve the current pagination max number.
      * 
+     * @param {Object} options
      * @param {Function} callback
      * @returns {Number}
      */
-    getPages: (callback) => {
+    getPages: (options, callback) => {
+        URL = options.url || URL;
+
         async.waterfall([
             (cb) => {
                 phantom.create(ph => cb(null, ph) );
@@ -73,13 +76,14 @@ module.exports = {
      *          protocol
      *          anonymity
      */
-    crawl: (page, callback) => {
-        if (page instanceof Function) {
-            callback = page;
-            page = null;
+    crawl: (options, callback) => {
+        if (options instanceof Function) {
+            callback = options;
+            options = {};
         }
 
-        const PAGE_URL = page ? URL.replace('#', `/${page}#`) : URL;
+        URL = options.url || URL;
+        const PAGE_URL = options.page ? URL.replace('#', `/${options.page}#`) : URL;
         
         async.waterfall([
             (cb) => {
