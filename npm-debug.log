@@ -1,0 +1,105 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/ubuntu/.nvm/versions/node/v4.2.1/bin/node',
+1 verbose cli   '/home/ubuntu/.nvm/versions/node/v4.2.1/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@3.5.2
+3 info using node@v4.2.1
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/home/ubuntu/workspace',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /home/ubuntu/.npm/hidemyass-scrapper/0.3.0/package.tgz not in flight; packing
+9 info lifecycle hidemyass-scrapper@0.3.0~prepublish: hidemyass-scrapper@0.3.0
+10 silly lifecycle hidemyass-scrapper@0.3.0~prepublish: no script for prepublish, continuing
+11 verbose tar pack [ '/home/ubuntu/.npm/hidemyass-scrapper/0.3.0/package.tgz',
+11 verbose tar pack   '/home/ubuntu/workspace' ]
+12 verbose tarball /home/ubuntu/.npm/hidemyass-scrapper/0.3.0/package.tgz
+13 verbose folder /home/ubuntu/workspace
+14 verbose addLocalTarball adding from inside cache /home/ubuntu/.npm/hidemyass-scrapper/0.3.0/package.tgz
+15 silly cache afterAdd hidemyass-scrapper@0.3.0
+16 verbose afterAdd /home/ubuntu/.npm/hidemyass-scrapper/0.3.0/package/package.json not in flight; writing
+17 verbose afterAdd /home/ubuntu/.npm/hidemyass-scrapper/0.3.0/package/package.json written
+18 silly publish { name: 'hidemyass-scrapper',
+18 silly publish   version: '0.3.0',
+18 silly publish   description: 'Page scrapper that retrieves proxy server information from HideMyAss website',
+18 silly publish   license: 'BSD-2-Clause',
+18 silly publish   repository: { type: 'git', url: 'hidemyass-scrapper' },
+18 silly publish   author:
+18 silly publish    { name: 'Rodrigo Gomes da Silva',
+18 silly publish      email: 'rodrigo.smscom@gmail.com',
+18 silly publish      url: 'https://github.com/rodrigogs/hidemyass-scrapper' },
+18 silly publish   main: 'index.js',
+18 silly publish   scripts: { test: 'ava tests.js --serial' },
+18 silly publish   keywords:
+18 silly publish    [ 'crawler',
+18 silly publish      'proxy',
+18 silly publish      'web',
+18 silly publish      'cheat',
+18 silly publish      'spider',
+18 silly publish      'scrapper',
+18 silly publish      'hidemyass' ],
+18 silly publish   engines: { node: '>=4.0.0' },
+18 silly publish   devDependencies: { ava: '^0.9.1' },
+18 silly publish   dependencies: { async: '^1.5.2', phantom: '^0.8.4' },
+18 silly publish   readme: '# HideMyAss Scrapper\n\n[![Build Status](https://travis-ci.org/rodrigogs/hidemyass-scrapper.svg?branch=master)](https://travis-ci.org/rodrigogs/hidemyass-scrapper)\n[![npm version](https://badge.fury.io/js/hidemyass-scrapper.svg)](https://badge.fury.io/js/hidemyass-scrapper)\n[![npm](https://img.shields.io/npm/dt/hidemyass-scrapper.svg)](https://www.npmjs.com/package/hidemyass-scrapper)\n\nPage scrapper that retrieves proxy server information from HideMyAss website.\n\nMake sure phantomjs is installed!\n\n> npm install hidemyass-scrapper\n\n```javascript\nvar HideMyAss = require(\'hidemyass-scrapper\');\n\nHideMyAss.getPages(function (err, pages) {\n    if (err) {\n        return console.log(\'Dammit!\');\n    }\n    HideMyAss.crawl(pages, function (err, proxylist) {\n        if (err) {\n            return console.log(\'Dammit!\');\n        }\n        for (proxy in proxylist) {\n            // You have a proxy here\n        }\n    });\n});\n```\n\n## License\n\n[Licence](https://github.com/rodrigogs/hidemyass-scrapper/blob/master/LICENSE) © Rodrigo Gomes da Silva\n',
+18 silly publish   readmeFilename: 'README.md',
+18 silly publish   gitHead: 'daf58a2352c27a90a128e659ee6acc408c356ff9',
+18 silly publish   _id: 'hidemyass-scrapper@0.3.0',
+18 silly publish   _shasum: 'b9f34b75abaab36315ab1c7644c565dacb124dca',
+18 silly publish   _from: '.' }
+19 verbose getPublishConfig undefined
+20 silly mapToRegistry name hidemyass-scrapper
+21 silly mapToRegistry using default registry
+22 silly mapToRegistry registry https://registry.npmjs.org/
+23 silly mapToRegistry uri https://registry.npmjs.org/hidemyass-scrapper
+24 verbose publish registryBase https://registry.npmjs.org/
+25 silly publish uploading /home/ubuntu/.npm/hidemyass-scrapper/0.3.0/package.tgz
+26 verbose request uri https://registry.npmjs.org/hidemyass-scrapper
+27 verbose request sending authorization for write operation
+28 info attempt registry request try #1 at 1:15:13 PM
+29 verbose request using bearer token for auth
+30 verbose request id 1578f5d4450b6bd2
+31 http request PUT https://registry.npmjs.org/hidemyass-scrapper
+32 http 403 https://registry.npmjs.org/hidemyass-scrapper
+33 verbose headers { 'content-type': 'application/json',
+33 verbose headers   'cache-control': 'max-age=300',
+33 verbose headers   'content-length': '95',
+33 verbose headers   'accept-ranges': 'bytes',
+33 verbose headers   date: 'Mon, 11 Jan 2016 13:15:14 GMT',
+33 verbose headers   via: '1.1 varnish',
+33 verbose headers   connection: 'keep-alive',
+33 verbose headers   'x-served-by': 'cache-jfk1036-JFK',
+33 verbose headers   'x-cache': 'MISS',
+33 verbose headers   'x-cache-hits': '0',
+33 verbose headers   'x-timer': 'S1452518113.554860,VS0,VE635' }
+34 verbose request invalidating /home/ubuntu/.npm/registry.npmjs.org/hidemyass-scrapper on PUT
+35 error publish Failed PUT 403
+36 verbose stack Error: "You cannot publish over the previously published version 0.3.0." : hidemyass-scrapper
+36 verbose stack     at makeError (/home/ubuntu/.nvm/versions/node/v4.2.1/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+36 verbose stack     at CachingRegistryClient.<anonymous> (/home/ubuntu/.nvm/versions/node/v4.2.1/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+36 verbose stack     at Request._callback (/home/ubuntu/.nvm/versions/node/v4.2.1/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+36 verbose stack     at Request.self.callback (/home/ubuntu/.nvm/versions/node/v4.2.1/lib/node_modules/npm/node_modules/request/request.js:198:22)
+36 verbose stack     at emitTwo (events.js:87:13)
+36 verbose stack     at Request.emit (events.js:172:7)
+36 verbose stack     at Request.<anonymous> (/home/ubuntu/.nvm/versions/node/v4.2.1/lib/node_modules/npm/node_modules/request/request.js:1082:10)
+36 verbose stack     at emitOne (events.js:82:20)
+36 verbose stack     at Request.emit (events.js:169:7)
+36 verbose stack     at IncomingMessage.<anonymous> (/home/ubuntu/.nvm/versions/node/v4.2.1/lib/node_modules/npm/node_modules/request/request.js:1009:12)
+37 verbose statusCode 403
+38 verbose pkgid hidemyass-scrapper
+39 verbose cwd /home/ubuntu/workspace
+40 error Linux 4.2.0-c9
+41 error argv "/home/ubuntu/.nvm/versions/node/v4.2.1/bin/node" "/home/ubuntu/.nvm/versions/node/v4.2.1/bin/npm" "publish"
+42 error node v4.2.1
+43 error npm  v3.5.2
+44 error code E403
+45 error "You cannot publish over the previously published version 0.3.0." : hidemyass-scrapper
+46 error If you need help, you may report this error at:
+46 error     <https://github.com/npm/npm/issues>
+47 verbose exit [ 1, true ]
