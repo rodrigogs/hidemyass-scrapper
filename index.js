@@ -18,7 +18,7 @@ module.exports = {
      * @returns {Number}
      */
     getPages: (options, callback) => {
-        URL = options.url || URL;
+        let url = options.url || URL;
 
         async.waterfall([
             (cb) => {
@@ -30,9 +30,9 @@ module.exports = {
             },
 
             (ph, page, cb) => {
-                page.open(URL, status => {
+                page.open(url, status => {
                     if (status !== 'success') {
-                        return cb(new Error(`Error opening page for ${URL}`), null, ph);
+                        return cb(new Error(`Error opening page for ${url}`), null, ph);
                     }
                     cb(null, ph, page);
                 });
@@ -82,8 +82,8 @@ module.exports = {
             options = {};
         }
 
-        URL = options.url || URL;
-        const PAGE_URL = options.page ? URL.replace('#', `/${options.page}#`) : URL;
+        let url = options.url || URL;
+        const PAGE_URL = options.page ? url.replace('#', `/${options.page}#`) : url;
         
         async.waterfall([
             (cb) => {
@@ -95,9 +95,9 @@ module.exports = {
             },
 
             (ph, page, cb) => {
-                page.open(URL, status => {
+                page.open(url, status => {
                     if (status !== 'success') {
-                        return cb(new Error(`Error opening page for ${URL}`, null, ph));
+                        return cb(new Error(`Error opening page for ${url}`, null, ph));
                     }
                     cb(null, ph, page);
                 });
