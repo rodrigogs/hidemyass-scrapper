@@ -3,7 +3,7 @@
 const phantom = require('phantom');
 const async = require('async');
 
-const URL = 'http://proxylist.hidemyass.com/search-1302871#listable';
+const URL = 'http://proxylist.hidemyass.com/search-1292985#listable';
 
 /**
  * @module HideMyAssProvider
@@ -96,7 +96,7 @@ module.exports = {
 
         let url = options.url || URL;
         const PAGE_URL = options.page ? url.replace('#', `/${options.page}#`) : url;
-        
+
         async.waterfall([
             (cb) => {
                 const args = options.proxy ? {
@@ -126,42 +126,45 @@ module.exports = {
                     /* It runs on the virtual browser, so we cant use ES6 */
                     function () {
                         var gtws = [];
-                        var table = $('table#listable tbody');
-                        if (table) {
+                        var table = document.querySelector('table#listable tbody');
 
-                            var rows = table.find('tr');
-                            rows.each(function (index, tr) {
+                        if (table) {
+                            var rows = document.querySelectorAll('tr', table);
+
+                            for (var i = 0, len = rows.length; i < len; i++) {
+                                var tr = rows[i];
 
                                 var gateway = {};
-                                var cols = $(tr).find('td');
-                                cols.each(function (index, col) {
+                                var cols = document.querySelectorAll('td', tr);
 
-                                    col = $(col);
-                                    switch (col.index()) {
+                                for (var x = 0, xlen = rows.length; x < xlen; x++) {
+
+                                    var col = cols[x];
+                                    switch (col.cellIndex) {
                                         case 0:
-                                            gateway.lastUpdate = col[0].innerText.trim();
+                                            gateway.lastUpdate = col.innerText.trim();
                                             break;
                                         case 1:
-                                            gateway.hostname = col[0].innerText.trim();
+                                            gateway.hostname = col.innerText.trim();
                                             break;
                                         case 2:
-                                            gateway.port = col[0].innerText.trim();
+                                            gateway.port = col.innerText.trim();
                                             break;
                                         case 3:
-                                            gateway.country = col[0].innerText.trim();
+                                            gateway.country = col.innerText.trim();
                                             break;
                                         case 6:
-                                            gateway.protocol = col[0].innerText.trim().toLowerCase();
+                                            gateway.protocol = col.innerText.trim().toLowerCase();
                                             break;
                                         case 7:
-                                            gateway.anonymity = col[0].innerText.trim();
+                                            gateway.anonymity = col.innerText.trim();
                                             break;
                                     }
-                                });
+                                }
 
                                 gateway.provider = 'HideMyAss';
                                 gtws.push(gateway);
-                            });
+                            }
                         }
 
                         return gtws;
