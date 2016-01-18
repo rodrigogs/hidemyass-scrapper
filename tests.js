@@ -3,7 +3,7 @@ import HideMyAss from './index';
 
 test.cb('get pagination number', t => {
     t.plan(2);
-    HideMyAss.getPages((err, pages) => {
+    HideMyAss.getPages({}, (err, pages) => {
         t.ifError(err, 'Unexpected error getting pagination');
         t.is(typeof pages, 'number', 'Pages from getPages must be a number');
         t.end();

@@ -18,15 +18,22 @@ module.exports = {
      * @returns {Number}
      */
     getPages: (options, callback) => {
-        let url = options.url || URL;
+        if (options instanceof Function) {
+            callback = options;
+            options = {};
+        }
+
+        const url = options.url || URL;
 
         async.waterfall([
             (cb) => {
-                phantom.create({
+                const args = options.proxy ? {
                     parameters: {
                         proxy: options.proxy
                     }
-                }, ph => cb(null, ph) );
+                } : {};
+
+                phantom.create(args, ph => cb(null, ph) );
             },
 
             (ph, cb) => {
@@ -58,8 +65,9 @@ module.exports = {
                 );
             }
         ], (err, pages, ph) => {
-            ph.exit();
-
+            if (ph) {
+                ph.exit();
+            }
             if (err) {
                 return callback(err);
             }
@@ -91,11 +99,13 @@ module.exports = {
         
         async.waterfall([
             (cb) => {
-                phantom.create({
+                const args = options.proxy ? {
                     parameters: {
                         proxy: options.proxy
                     }
-                }, ph => cb(null, ph) );
+                } : {};
+
+                phantom.create(args, ph => cb(null, ph) );
             },
 
             (ph, cb) => {
@@ -171,8 +181,9 @@ module.exports = {
                 );
             }
         ], (err, gateways, ph) => {
-            ph.exit();
-
+            if (ph) {
+                ph.exit();
+            }
             if (err) {
                 return callback(err);
             }
