@@ -22,7 +22,11 @@ module.exports = {
 
         async.waterfall([
             (cb) => {
-                phantom.create(ph => cb(null, ph) );
+                phantom.create({
+                    parameters: {
+                        proxy: options.proxy
+                    }
+                }, ph => cb(null, ph) );
             },
 
             (ph, cb) => {
@@ -66,7 +70,7 @@ module.exports = {
     /**
      * Crawl proxylist.hidemyass.com and retrieve a list of proxy servers.
      * 
-     * @param {Number} page Page number
+     * @param {Object} options
      * @param {Function} callback function (gateways) {}
      * @returns Object[] 
      *          lastUpdate
@@ -87,7 +91,11 @@ module.exports = {
         
         async.waterfall([
             (cb) => {
-                phantom.create(ph => cb(null, ph) );
+                phantom.create({
+                    parameters: {
+                        proxy: options.proxy
+                    }
+                }, ph => cb(null, ph) );
             },
 
             (ph, cb) => {
