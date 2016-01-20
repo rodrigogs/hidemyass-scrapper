@@ -19,6 +19,8 @@ module.exports = {
      * @returns {Number}
      */
     getPages: (options, callback) => {
+        options = options || {};
+        
         if (options instanceof Function) {
             callback = options;
             options = {};
@@ -90,6 +92,8 @@ module.exports = {
      *          anonymity
      */
     crawl: (options, callback) => {
+        options = options || {};
+        
         if (options instanceof Function) {
             callback = options;
             options = {};
