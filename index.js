@@ -173,7 +173,7 @@ module.exports = {
                         }
                         /* XXX */
                         , gateways => {
-                            gateways = gateways
+                            gateways = (gateways || [])
                                 .filter(n => {
                                     return n
                                         && n.hostname
