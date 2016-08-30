@@ -1,6 +1,6 @@
 {
   "name": "hidemyass-scrapper",
-  "version": "0.3.7",
+  "version": "0.4.0",
   "description": "Page scrapper that retrieves proxy server information from HideMyAss website",
   "license": "BSD-2-Clause",
   "repository": "hidemyass-scrapper",
@@ -26,11 +26,11 @@
     "node": ">=4.0.0"
   },
   "devDependencies": {
-    "ava": "^0.9.1"
+    "ava": "^0.16.0"
   },
   "dependencies": {
-    "async": "^1.5.2",
-    "phantom": "^0.8.4",
-    "validator": "^4.5.1"
+    "bluebird": "^3.4.3",
+    "phantom": "^2.1.20",
+    "validator": "^5.5.0"
   }
 }
