@@ -9,7 +9,6 @@ test('get pagination number', t => {
 
 test('crawl the proxy list from HideMyAss', t => {
   return HideMyAss.crawl().then(gateways => {
-    console.log(gateways);
     t.true((gateways instanceof Array), 'Return should be an array');
   });
 });
